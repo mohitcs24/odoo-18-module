@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_student_list" model="ir.ui.view">
+        <field name="name">student.tree</field>
+        <field name="model">student.management</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="roll_number"/>
+                <field name="age"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">student.form</field>
+        <field name="model">student.management</field>
+        <field name="arch" type="xml">
+            <form string="Student Form">
+
+                <header>
+                    <button name="action_submit" string="Submit" type="object" class="btn btn-primary"/>
+                    <button name="action_reset" string="Reset" type="object" class="btn btn-primary"/>
+                    <button name="custom_method" string="Create" type="object" class="btn btn-primary"/>
+                </header>
+
+                <sheet>
+                        <h2>Student Management System</h2>
+
+                    <group>
+                        <group string ="group 1">
+                            <field name="name"/>
+                            <field name="place"/>
+                            <field name="class_field"/>
+                        </group>
+
+                        <group string ="group 2">
+                            <field name="dob"/>
+                            <field name="gender"/>
+                            <field name="guardian_name"/>
+                        </group>
+
+                        <group string ="group 3">
+                            <field name="contact_number"/>
+                            <field name="email"/>
+                            <field name="address"/>
+                            <field name="sale_order_id"/>
+                        </group>
+
+                        <group string ="group 4">
+                            <field name="admission_date"/>
+                            <field name="student_id"/>
+                            <field name="status"/>
+                            <field name="age"/>
+                            <field name="student_level" readonly="1"/>
+                        </group>
+                        
+                    </group>
+
+                   <notebook>
+    <page string="Academics">
+        <group>
+            <group string = "group 1">
+                <field name="subject_1"/>
+                <field name="subject_2"/>
+            </group>
+            <group string = "group 2">
+                <field name="subject_3"/>
+                <field name="subject_4"/>
+            </group>
+        </group>
+    </page>
+
+    <page string="Medical Info">
+        <group>
+            <group string = "group 1">
+                <field name="blood_group"/>
+                <field name="disability"/>
+            </group>
+
+            <group string = " group 2">
+                <field name="medical_condition"/>
+                <field name="allergies"/>
+            </group>
+
+            <group string = " group 3">
+                <field name="emergency_contact"/>
+                <field name="doctor_name"/>
+            </group>
+        </group>
+    </page>
+
+    <page string="Documents">
+        <group>
+            <group string = "group 1">
+                <field name="aadhar_card"/>
+                <field name="birth_certificate"/>
+            </group>
+
+            <group string = "group 2">
+                <field name="tc_copy"/>
+            </group>
+            <group>
+            </group>
+
+            <group string = "group 3">
+                <field name="other_documents"/>
+                <field name="report_card"/>
+            </group>
+        </group>
+    </page>
+
+    <page string="Notes">
+        <group>
+            <group string = "group 1">
+                <field name="note_1"/>
+            </group>
+            <group string = " group 2">
+                <field name="note_2"/>
+            </group>
+            <group string = " group 3">
+                <field name="note_3"/>
+            </group>
+            <group string = " group 4">
+                <field name="note_4"/>
+            </group>
+            <group>
+                <field name="active"/>
+                <field name="name"/>
+            </group>
+        </group>
+    </page>
+</notebook>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student.management</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="student_management_menu_root" name="Student Management"/>
+    <menuitem id="student_management_menu" name="Students" parent="student_management_menu_root" action="action_student"/>
+</odoo>

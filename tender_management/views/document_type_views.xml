@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree view -->
+        <record id="view_document_type_tree" model="ir.ui.view">
+            <field name="name">document.type.tree</field>
+            <field name="model">document.type</field>
+            <field name="arch" type="xml">
+                <list string="Document Types">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="is_required"/>
+                    <field name="is_supporting"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="view_document_type_form" model="ir.ui.view">
+            <field name="name">document.type.form</field>
+            <field name="model">document.type</field>
+            <field name="arch" type="xml">
+                <form string="Document Type">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="is_required"/>
+                            <field name="is_supporting"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_document_type" model="ir.actions.act_window">
+            <field name="name">Document Types</field>
+            <field name="res_model">document.type</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_tender_root" name="Tender Management"/>
+
+        <menuitem id="menu_document_type"
+                  name="Document> Types"
+                  parent="menu_tender_root"
+                  action="action_document_type"/>
+    </data>
+</odoo>

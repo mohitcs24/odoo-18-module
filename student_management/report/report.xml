@@ -1,0 +1,14 @@
+<odoo>
+  
+
+  <record id="action_student_report_pdf" model="ir.actions.report">
+            <field name="name">Student PDF</field>
+            <field name="model">student.management</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">student_management.report_student_document_demo</field>
+            <field name="report_file">student_management.report_student_document_demo</field>
+            <!-- <field name="is_invoice_report">True</field> -->
+            <field name="print_report_name">('Student_Report_' + object.name)</field>
+            <field name="attachment"/>
+        </record>
+</odoo>

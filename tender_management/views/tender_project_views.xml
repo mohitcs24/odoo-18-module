@@ -1,0 +1,111 @@
+<odoo>
+    <data>
+        <!-- Tree view (list view) -->
+        <record id="view_tender_project_tree" model="ir.ui.view">
+            <field name="name">tender.project.tree</field>
+            <field name="model">tender.project</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="ministry_state_name"/>
+                    <field name="bid_end_datetime"/>
+                    <field name="bid_opening_date"/>
+                    <field name="bid_type"/>
+                    <field name="estimated_bid_value"/>
+                   
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="view_tender_project_form" model="ir.ui.view">
+            <field name="name">tender.project.form</field>
+            <field name="model">tender.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_evaluation,submitted,lost,win"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="ministry_state_name"/>
+                                <field name="department_name"/>
+                                <field name="organisation_name"/>
+                                <field name="office_name"/>
+                                <field name="buyer_email"/>
+                                <field name="item_category"/>
+                            </group>
+                            <group>
+                                <field name="bid_end_datetime"/>
+                                <field name="bid_opening_date"/>
+                                <field name="bid_offer_validity_days"/>
+                                <field name="bid_type"/>
+                                <field name="estimated_bid_value"/>
+                                <field name="evaluation_method"/>
+                            </group>
+                            <group>
+                                <field name="contract_period_months"/>
+                                <field name="contract_period_days"/>
+                                <field name="min_avg_annual_turnover"/>
+                                <field name="years_past_experience_required"/>
+                                <field name="past_experience_similar_services"/>
+                                <field name="mse_exemption_years_experience"/>
+                                <field name="startup_exemption_years_experience"/>
+                            </group>
+                            <group>
+                                <field name="show_uploaded_docs_to_all"/>
+                                <field name="bid_to_ra_enabled"/>
+                                <field name="time_allowed_technical_clarifications"/>
+                                <field name="financial_doc_price_breakup"/>
+                                <field name="arbitration_clause"/>
+                                <field name="mediation_clause"/>
+                            </group>
+                            <group>
+                                <field name="advisory_bank"/>
+                                <field name="emd_amount"/>
+                                <field name="epbg_required"/>
+                                <field name="mii_compliance"/>
+                                 <field name="state"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Documents">
+                                <field name="document_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="type_id"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Supporting Documents">
+                                <field name="supporting_document_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="file"/>
+                                        <field name="type_id"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action window -->
+        <record id="action_tender_project" model="ir.actions.act_window">
+            <field name="name">Tenders</field>
+            <field name="res_model">tender.project</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_tender_root" name="E-Tenders"/>
+        <menuitem id="menu_tender_project" name="Tenders" parent="menu_tender_root" action="action_tender_project"/>
+    </data>
+</odoo>

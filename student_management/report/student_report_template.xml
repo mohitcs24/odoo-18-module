@@ -1,0 +1,24 @@
+<odoo>
+    <!-- Main report layout template -->
+    <template id="report_student_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Student Report</h2>
+                <p><strong>Name:</strong> <t t-esc="o.name"/></p>
+                <p><strong>Roll Number:</strong> <t t-esc="o.roll_number"/></p>
+                <p><strong>Age:</strong> <t t-esc="o.age"/></p>
+                <p><strong>Standard:</strong> <t t-esc="o.standard"/></p>
+                <p><strong>Address:</strong> <t t-esc="o.address"/></p>
+            </div>
+        </t>
+    </template>
+
+    <!-- Wrapper for looping through docs -->
+    <template id="report_student_document_demo">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="student_management.report_student_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

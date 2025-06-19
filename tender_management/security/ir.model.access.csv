@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tender_project,tender.project,model_tender_project,sales_team.group_sale_manager,1,1,1,1
+access_document_type,document.type,model_document_type,sales_team.group_sale_manager,1,1,1,1
+access_tender_document,tender.document,model_tender_document,sales_team.group_sale_manager,1,1,1,1
+access_supporting_document,tender.supporting.document,model_tender_supporting_document,sales_team.group_sale_manager,1,1,1,1
